@@ -14,10 +14,11 @@ void forkexample()
 
 	if (fork() == 0)
 		printf("Child has x = %d\n", ++x); // Child Increments x
-	else{
-		// wait(&child_status);
+	else
+	{
+		wait(&child_status);
 		printf("Parent has x = %d\n", --x); // Parent Decrements x
-		}
+	}
 }
 int main()
 {

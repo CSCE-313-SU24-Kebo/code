@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     cout << "This is the main program running before the exec syscall" << endl;
-    const char *file = "/home/davidkebo/2024_spring/week4/exec/arithmetic";
+    const char *file = "/home/davidkebo/2024_summer/week4/exec/operations/math_factorial";
     const char *arg2 = "Hello world!\n\nToday is Wednesday.";
     const char *arg1 = "-e";
     execl(file, file, arg1, arg2, NULL); // Executable + Path to the Binary + Rest of the options ... + NULL
