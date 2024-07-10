@@ -13,10 +13,15 @@ int main(void)
     pid_t process_id = getpid(); // ID for the running process
     printf("Process ID: %i\n", process_id);
     printf("Waiting for a signal ...\n");
+
     if (signal(SIGUSR1, sig_usr_1) == SIG_ERR) // Disposition for SIGUSR1
         printf("can’t catch SIGUSR1");
     if (signal(SIGUSR2, sig_usr_2) == SIG_ERR) // Disposition for SIGUSR2
         printf("can’t catch SIGUSR2");
+
+    raise(SIGUSR1);
+    //kill(process_id, SIGUSR1);
+
     for (;;)
         pause(); // The pause function suspends the calling process until a signal is received.
 }
