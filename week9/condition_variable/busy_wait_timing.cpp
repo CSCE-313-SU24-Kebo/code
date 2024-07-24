@@ -26,7 +26,7 @@ void waitThread() {
   while(!g_ready){// Wait on the flag
 
   }
-  // Don not start using the data until g_ready is true!
+  // Do not start using the data until g_ready is true!
   // Consume the data - use the data
   std::cout << "Wait Thread Executed! \n";
 }
