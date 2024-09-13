@@ -14,7 +14,7 @@ def spoof_pkt(pkt):
         # Spoofed data (Stack)
         a = IP(src=pkt[IP].dst, dst=pkt[IP].src, ihl=pkt[IP].ihl) # a is a Modification of the original packet
         b = ICMP(type=0, id=pkt[ICMP].id, seq=pkt[ICMP].seq) # Copy the ID and sequence values of the original packet
-        data = pkt[Raw].load # Copy the payload of the orginal 
+        data = pkt[Raw].load # Copy the payload of the original 
 
         # create a new tampered stack
         spoof = a/b/data
@@ -31,6 +31,6 @@ def spoof_pkt(pkt):
 
 #pkt = sniff(iface='ens4', filter='icmp', prn=spoof_pkt)
 def main():
-    pkt = sniff(filter='icmp', prn=spoof_pkt)
+    pkt = sniff(filter='icmp', prn=spoof_pkt) # Listen to traffic based on a filter
 
 main()
